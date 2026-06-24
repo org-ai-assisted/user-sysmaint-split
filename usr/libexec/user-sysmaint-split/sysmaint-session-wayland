@@ -86,23 +86,6 @@ for sysmaint_app in "${sysmaint_app_list[@]}"; do
    fi
 done
 
-system_tray_list=(
-   '/usr/bin/waybar'
-)
-system_tray_arg_list=(
-   ''
-)
-selected_system_tray=''
-selected_system_tray_args=''
-
-for (( idx = 0; idx < ${#system_tray_list[@]}; idx++ )); do
-   if [ -e "${system_tray_list[idx]}" ]; then
-      selected_system_tray="${system_tray_list[idx]}"
-      selected_system_tray_args="${system_tray_arg_list[idx]}"
-      break
-   fi
-done
-
 if [ -z "${selected_window_manager}" ]; then
    printf "%s\n" "$0: ERROR: Could not find a supported window manager!" >&2
    exit 1
@@ -139,6 +122,13 @@ if has pactl; then
           timeout --kill-after="1" "1" pactl set-sink-volume @DEFAULT_SINK@ 50% || true
       fi
    fi
+fi
+
+if [ "${selected_window_manager}" = '/usr/bin/labwc' ]; then
+   # shellcheck disable=SC2086
+   exec "${selected_window_manager}" ${selected_window_manager_args} \
+     --session "${selected_sysmaint_app}" \
+     --startup "/usr/libexec/user-sysmaint-split/sysmaint-session-startup"
 fi
 
 # shellcheck disable=SC2086
@@ -179,14 +169,9 @@ while read -r systemd_env_line; do
    fi
 done < <(systemctl --user show-environment)
 
-if [ -n "${selected_system_tray}" ]; then
-   # shellcheck disable=SC2086
-   "${selected_system_tray}" ${selected_system_tray_args} &
-fi
+/usr/libexec/user-sysmaint-split/sysmaint-session-startup &
 
 "${selected_sysmaint_app}" &
 sysmaint_app_pid="$!"
-
-start_user_background_services
 
 wait "${sysmaint_app_pid}"

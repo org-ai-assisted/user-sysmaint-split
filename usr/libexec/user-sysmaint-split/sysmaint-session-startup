@@ -1,0 +1,41 @@
+#!/bin/bash
+
+## Copyright (C) 2024 - 2025 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
+## See the file COPYING for copying conditions.
+
+# shellcheck source=./sysmaint-session-shared
+source /usr/libexec/user-sysmaint-split/sysmaint-session-shared
+
+system_tray_list=(
+   '/usr/bin/trayer'
+)
+system_tray_arg_list=(
+   '--edge top --align right --SetPartialStrut true'
+)
+
+if [ "$XDG_SESSION_TYPE" = 'wayland' ]; then
+   system_tray_list=(
+      '/usr/bin/waybar'
+   )
+   system_tray_arg_list=(
+      ''
+   )
+fi
+
+selected_system_tray=''
+selected_system_tray_args=''
+
+for (( idx = 0; idx < ${#system_tray_list[@]}; idx++ )); do
+   if [ -e "${system_tray_list[idx]}" ]; then
+      selected_system_tray="${system_tray_list[idx]}"
+      selected_system_tray_args="${system_tray_arg_list[idx]}"
+      break
+   fi
+done
+
+if [ -n "${selected_system_tray}" ]; then
+   # shellcheck disable=SC2086
+   "${selected_system_tray}" ${selected_system_tray_args} &
+fi
+
+start_user_background_services
