@@ -8,6 +8,14 @@ After=sysmaint-boot.target
 ConditionPathExists=/usr/share/qubes/marker-vm
 ConditionKernelCommandLine=remove-sysmaint-qubes
 
+## The self-removal runs 'apt purge' (via sysmaint-boot -> dummy-dependency),
+## which takes '/var/lib/dpkg/lock-frontend'. Order it before the Qubes
+## rc.local runner: qubes-misc-post.service executes '/rw/config/rc.local'
+## (and '/rw/config/rc.local.d/*.rc'), which may itself invoke dpkg/apt. Without
+## this ordering the two run concurrently at boot, contend for the dpkg lock,
+## and the purge aborts with 'Could not get lock /var/lib/dpkg/lock-frontend'.
+Before=qubes-misc-post.service
+
 [Service]
 Type=oneshot
 RemainAfterExit=yes
