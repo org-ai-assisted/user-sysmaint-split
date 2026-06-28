@@ -93,6 +93,7 @@ start_user_background_services() {
      'lxqt-notifications'
      'wlr-resize-watcher'
      'backlight-tool-dist-restore'
+     'vboxclient-wayland'
   )
   late_user_service_list=(
      'lxqt-powermanagement'
