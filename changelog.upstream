@@ -1,3 +1,28 @@
+commit cb1c52f075a02650bd98bbf1ccd4ada89bc05bc4
+Merge: 4554e61 fbfecd1
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Jul 7 06:25:31 2026 -0400
+
+    Merge remote-tracking branch 'refs/remotes/ArrayBolt3/arraybolt3/trixie'
+
+commit fbfecd1d6dec77dbbbfa5e1b11477663c95e6066
+Author: Aaron Rainbolt <arraybolt3@gmail.com>
+Date:   Mon Jun 29 23:42:05 2026 -0400
+
+    Execute the right sdwdate-gui desktop file
+
+commit 0be3653c722cdfcac7da2c086b62129b98c46b26
+Author: Aaron Rainbolt <arraybolt3@gmail.com>
+Date:   Sun Jun 28 17:28:53 2026 -0400
+
+    Switch to Oracle VirtualBox services, enable clipboard sharing
+
+commit 4554e618c9e5f6537528ad5a47e5e39741a0da2e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jun 24 19:06:14 2026 +0000
+
+    bumped changelog version
+
 commit 55d9860ebf9aaf9a5a51a47e0b639c4bcec69866
 Merge: db7bcb3 a2e7ea0
 Author: Patrick Schleizer <adrelanos@whonix.org>
