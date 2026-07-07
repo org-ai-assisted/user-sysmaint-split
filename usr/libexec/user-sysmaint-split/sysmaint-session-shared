@@ -85,14 +85,14 @@ start_user_background_services() {
      'polkit-mate-authentication-agent-1'
      'msgdispatcher'
      'nm-applet'
-     'sdwdate-gui-client'
-     'sdwdate-gui-server'
+     'sdwdate-gui'
      'updatecheck'
      'spice-vdagent'
      'livecheck'
      'lxqt-notifications'
      'wlr-resize-watcher'
      'backlight-tool-dist-restore'
+     'vboxclient-wayland'
   )
   late_user_service_list=(
      'lxqt-powermanagement'
