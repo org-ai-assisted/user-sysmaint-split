@@ -1,3 +1,22 @@
+commit 4ad14b13a8bc3b8d79e3e4f5b4d47053a8e82913
+Merge: dc182f1 4f5ec67
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jul 8 13:56:42 2026 -0400
+
+    Merge remote-tracking branch 'refs/remotes/ArrayBolt3/arraybolt3/trixie'
+
+commit 4f5ec67f451b0b752d65098bc5be607393087540
+Author: Aaron Rainbolt <arraybolt3@gmail.com>
+Date:   Wed Jul 8 12:02:30 2026 -0400
+
+    Comments, re-enable Debian Guest Additions when they are present
+
+commit dc182f135e52767c2c68d6239bd70e6ceea44484
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Jul 7 10:43:24 2026 +0000
+
+    bumped changelog version
+
 commit cb1c52f075a02650bd98bbf1ccd4ada89bc05bc4
 Merge: 4554e61 fbfecd1
 Author: Patrick Schleizer <adrelanos@whonix.org>
