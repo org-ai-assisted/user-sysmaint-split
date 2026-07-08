@@ -102,10 +102,12 @@ Wants=kill-vboxdrmclient-on-shutdown.service
 Wants=canary.service
 
 ## VirtualBox
-#Wants=virtualbox-guest-utils.service
+## Old Guest Additions from Debian.
+Wants=virtualbox-guest-utils.service
+## Newer Guest Additions from Oracle.
 Wants=vboxadd.service
-# The below line is not typoed, the unit is actually called
-# vboxadd-service.service
+## The below line is not typoed, the unit is actually called
+## vboxadd-service.service
 Wants=vboxadd-service.service
 
 ## KVM
