@@ -1,3 +1,22 @@
+commit 49521813a31294b1bf1d7cd38f35ddd5f3c70571
+Merge: 3758bcd 14ee7cb
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Jul 21 05:09:53 2026 -0400
+
+    Merge remote-tracking branch 'refs/remotes/ArrayBolt3/arraybolt3/trixie'
+
+commit 14ee7cb0edd08c1c646a3c668240a465e7e81f47
+Author: Aaron Rainbolt <arraybolt3@gmail.com>
+Date:   Sun Jul 19 21:23:03 2026 -0400
+
+    Remove obsolete Qubes version check
+
+commit 3758bcdc70da284375a502873e4bdad4f54d322e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jul 8 18:15:49 2026 +0000
+
+    bumped changelog version
+
 commit 4ad14b13a8bc3b8d79e3e4f5b4d47053a8e82913
 Merge: dc182f1 4f5ec67
 Author: Patrick Schleizer <adrelanos@whonix.org>
