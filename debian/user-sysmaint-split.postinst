@@ -27,9 +27,6 @@ disable_sysmaint_normal_user_autologin() {
    local autologinchange_output
    if [ ! -f /usr/share/qubes/marker-vm ] \
       && [ "${boot_session}" != 'sysmaint_session' ]; then
-      ## Capture stderr and surface it only on failure: quiet on success
-      ## (autologinchange is chatty), but a failure here aborts the postinst,
-      ## so its cause must not be hidden.
       if ! autologinchange_output="$(/usr/sbin/autologinchange -r -d -- sysmaint 2>&1)"; then
          printf '%s\n' "${autologinchange_output}" >&2
          return 1
@@ -55,7 +52,6 @@ enable_sysmaint_autologin() {
    ## to know the account name "sysmaint" in advance to be able to log in, and
    ## with the current design, they won't know that username in advance.
    if [ ! -f /usr/share/qubes/marker-vm ]; then
-      ## See disable_sysmaint_normal_user_autologin: surface a fatal failure.
       if ! autologinchange_output="$(/usr/sbin/autologinchange -e -- sysmaint 2>&1)"; then
          printf '%s\n' "${autologinchange_output}" >&2
          return 1
