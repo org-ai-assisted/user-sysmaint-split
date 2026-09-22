@@ -24,13 +24,18 @@ true "
 disable_sysmaint_normal_user_autologin() {
    ## do_once code intentionally omitted, this needs to be done any time this
    ## package is installed in case the user removes and reinstalls it.
+   local autologinchange_output
    if [ ! -f /usr/share/qubes/marker-vm ] \
       && [ "${boot_session}" != 'sysmaint_session' ]; then
-      /usr/sbin/autologinchange -r -d -- sysmaint 2>/dev/null
+      if ! autologinchange_output="$(/usr/sbin/autologinchange -r -d -- sysmaint 2>&1)"; then
+         printf '%s\n' "${autologinchange_output}" >&2
+         return 1
+      fi
    fi
 }
 
 enable_sysmaint_autologin() {
+   local autologinchange_output
    if [ -f "/var/lib/user-sysmaint-split/do_once/${FUNCNAME[0]}_version_1" ]; then
       return 0
    fi
@@ -47,7 +52,10 @@ enable_sysmaint_autologin() {
    ## to know the account name "sysmaint" in advance to be able to log in, and
    ## with the current design, they won't know that username in advance.
    if [ ! -f /usr/share/qubes/marker-vm ]; then
-      /usr/sbin/autologinchange -e -- sysmaint 2>/dev/null
+      if ! autologinchange_output="$(/usr/sbin/autologinchange -e -- sysmaint 2>&1)"; then
+         printf '%s\n' "${autologinchange_output}" >&2
+         return 1
+      fi
    fi
 
    touch "/var/lib/user-sysmaint-split/do_once/${FUNCNAME[0]}_version_1"
