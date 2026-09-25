@@ -1,3 +1,47 @@
+commit 77bd6f611c76c0d87237c9c187e95ed7db16059d
+Merge: 4305b5c 97c314d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 21 23:02:36 2026 -0400
+
+    Merge remote-tracking branch 'refs/remotes/ArrayBolt3/arraybolt3/trixie'
+
+commit 97c314dc927f77c37e86ecf2078fb17ff7df2767
+Author: Aaron Rainbolt <arraybolt3@gmail.com>
+Date:   Sun Sep 20 16:08:44 2026 -0400
+
+    comments
+
+commit 9f7ee5ca4f8de3a67d6581e45be66b06b31d3ed2
+Merge: 4305b5c 9fc59b1
+Author: Aaron Rainbolt <arraybolt3@gmail.com>
+Date:   Sun Sep 20 16:05:15 2026 -0400
+
+    Merge branch 'ai' into arraybolt3/trixie
+
+commit 9fc59b15bdb061bb9d70fcd9c86622dd469b598c
+Author: claude (dev586 e40d0109-dfab-4668-b4a9-8a492c3155d2) <noreply@anthropic.com>
+Date:   Wed Sep 16 11:08:23 2026 -0400
+
+    postinst: surface fatal autologinchange error
+
+    - 2>/dev/null hid the cause of a failure that aborts configure under set -e
+    - capture stderr, print only on failure; quiet on success
+
+    Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>
+
+commit 1419605a3488f65530b86b581fdc8b141562258e
+Merge: c354fda 4305b5c
+Author: assisted-by-ai <assisted-by-ai@users.noreply.github.com>
+Date:   Tue Sep 15 12:58:38 2026 -0400
+
+    Merge master into ai (remaster)
+
+commit 4305b5c00720f39650b12c272a6acc66032b8e25
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Sep 15 12:06:51 2026 +0000
+
+    bumped changelog version
+
 commit 615d1ee5511c293fb9145d340019528c1aef1e61
 Merge: 1029d42 44ec632
 Author: Patrick Schleizer <adrelanos@whonix.org>
