@@ -52,7 +52,6 @@ Wants=getty.target
 
 ## Basics.
 Wants=console-setup.service
-Wants=dist-skel-first-boot.service
 Wants=udisks2.service
 Wants=upower.service
 Wants=systemd-fsckd.socket
