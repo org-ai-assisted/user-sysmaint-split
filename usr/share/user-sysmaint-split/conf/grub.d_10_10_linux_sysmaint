@@ -25,6 +25,12 @@ make_boot_entry='true'
 : "${persistence_type:="PERSISTENT"}"
 : "${session_detail:="system maintenance tasks"}"
 
+## Scope this entry's GRUB --id (via 10_00_linux_dist) by persistence AND session.
+## grub-live's 10_20_linux_live re-execs this script with persistence_type=LIVE to
+## emit the LIVE SYSMAINT entry, so a bare 'sysmaint' token would give the live and
+## persistent SYSMAINT entries the SAME id. Derive it: persistent-sysmaint / live-sysmaint.
+boot_mode_id="${persistence_type,,}-sysmaint"
+
 grub_distributor_appendix="${persistence_type} Mode | SYSMAINT Session | ${session_detail}"
 GRUB_DISTRIBUTOR="${grub_distributor_appendix}"
 

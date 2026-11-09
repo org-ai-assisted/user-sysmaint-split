@@ -64,11 +64,6 @@ ${color_background_str}"
 write_sysmaint_account_specific_config_once() {
   account_specific_config_marker_dir='/home/sysmaint/.sysmaint-boot/account-specific-config-markers'
   mkdir --verbose --parents -- "${account_specific_config_marker_dir}"
-  ## TODO: We may add more configuration functions to this loop. Remove the
-  ## shellcheck override for SC2043 when and if that happens. The override for
-  ## SC2041 should NOT be removed, we are intentionally looping over the names
-  ## of the specified functions, not calling the functions immediately.
-  # shellcheck disable=SC2043
   # shellcheck disable=SC2041
   for config_write_fn in \
     'terminal_tint_config_xfce' \
